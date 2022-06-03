@@ -16,6 +16,7 @@ class ExampleController {
 	}
 }
 
+// this should take in a reference to app
 function applyRoutesToMiddleware(controllers: any[]): void {
 	controllers.forEach((controller) => {
 		const baseUrl = Reflect.get(controller, Keys.Route)
@@ -23,6 +24,7 @@ function applyRoutesToMiddleware(controllers: any[]): void {
 
 		// create router
 		debug('Creating router for ', {baseUrl})
+		debug('const router = express.Router()')
 		routeStore.forEach((route) => {
 			const func = controller[route.func]
 			debug(`router[${route.method}](${route.route}, ${func})`)
