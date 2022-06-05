@@ -6,7 +6,7 @@ import {
 } from '../util'
 
 export function Method(method: HttpMethod, route = '/') {
-	return function decorateControllerMethod(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+	return function decorateControllerMethod(target: any, propertyKey: string) {
 		defineRouteMetadataIfNotExists(target.constructor.prototype)
 
 		const routeMetadata = {method, route, func: propertyKey}
