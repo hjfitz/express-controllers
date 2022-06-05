@@ -1,10 +1,11 @@
+import type {Method as HttpMethod} from '../types'
+
 import {
 	defineRouteMetadataIfNotExists,
 	defineRouteOnPrototype,
 } from '../util'
-import type {Method} from '../types'
 
-function Method(method: Method, route = '/') {
+export function Method(method: HttpMethod, route = '/') {
 	return function decorateControllerMethod(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
 		defineRouteMetadataIfNotExists(target.constructor.prototype)
 
@@ -13,31 +14,30 @@ function Method(method: Method, route = '/') {
 	}
 }
 
-// mess
 export function Get(route?: string) {
-	return Method('GET', route)
+	return Method('get', route)
 }
 
 export function Post(route?: string) {
-	return Method('POST', route)
+	return Method('post', route)
 }
 
 export function Patch(route?: string) {
-	return Method('PATCH', route)
+	return Method('patch', route)
 }
 
 export function Put(route?: string) {
-	return Method('PUT', route)
+	return Method('put', route)
 }
 
 export function Delete(route?: string) {
-	return Method('DELETE', route)
+	return Method('delete', route)
 }
 
 export function Head(route?: string) {
-	return Method('DELETE', route)
+	return Method('head', route)
 }
 
 export function Options(route?: string) {
-	return Method('DELETE', route)
+	return Method('options', route)
 }

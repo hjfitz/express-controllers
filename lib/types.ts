@@ -4,13 +4,13 @@ export enum Keys {
 }
 
 export type Method = 
-	| 'GET' 
-	| 'PUT' 
-	| 'POST' 
-	| 'PATCH' 
-	| 'DELETE' 
-	| 'HEAD' 
-	| 'OPTIONS'
+	| 'get' 
+	| 'put' 
+	| 'post' 
+	| 'patch' 
+	| 'delete' 
+	| 'head' 
+	| 'options'
 
 export interface RouteMetadata {
 	method: Method,
